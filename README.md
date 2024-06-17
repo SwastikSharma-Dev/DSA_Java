@@ -44,4 +44,40 @@ class Solution {
     }
 };
 ```
-## Q2
+## Q2 - https://www.geeksforgeeks.org/problems/linked-list-insertion-1587115620/0
+```java
+class Solution
+{
+    //Function to insert a node at the beginning of the linked list.
+    Node insertAtBeginning(Node head, int x)
+    {
+        Node newNode = new Node(x);
+        newNode.next=head;
+        head=newNode;
+        return head;
+    }
+    
+    //Function to insert a node at the end of the linked list.
+    Node insertAtEnd(Node head, int x)
+    {
+        Node newNode = new Node(x);
+        
+        if(head!=null)
+
+        {
+        Node current;
+        current = head;
+        while(current.next!=null)
+        {
+            current=current.next;
+        }
+        current.next=newNode;
+        }
+        if(head==null)
+        {
+            head=newNode;
+        }
+        return head;
+    }
+}
+```
