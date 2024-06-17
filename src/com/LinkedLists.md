@@ -151,3 +151,114 @@ class Solution
     }
 }
 ```
+
+# DOUBLY LINKED LISTS
+## Q1 - https://www.geeksforgeeks.org/problems/introduction-to-doubly-linked-list/1
+```java
+class Solution
+{
+    Node constructDLL(int arr[])
+    {
+        Node head = new Node(arr[0]);
+        Node current = head;
+        for(int i=1; i<arr.length; i++)
+        {
+            Node newNode = new Node(arr[i]);
+            newNode.prev=current;
+            current.next=newNode;
+            current=newNode;
+        }
+        return head;
+    }
+}
+```
+## Q2 - https://www.geeksforgeeks.org/problems/insert-a-node-in-doubly-linked-list/1
+```java
+class GfG
+{
+    //Function to insert a new node at given position in doubly linked list.
+    void addNode(Node head_ref, int pos, int data)
+    {
+	    if(pos==0)
+	    {
+	       Node newNode = new Node(data);
+	       newNode.next=head_ref.next;
+	       head_ref.next=newNode;
+	       newNode.prev=head_ref;
+	    }
+	    else
+	    {
+    		Node current = head_ref;
+    		int count = 0;
+            while(current.next!=null && count!=pos)
+            {
+            count++;
+            current=current.next;
+            }
+            if(current.next!=null)
+            {
+            Node newNode = new Node(data);
+    		newNode.next=current.next;
+    		current.next.prev=newNode;
+    		current.next=newNode;
+    		newNode.prev=current;
+            }
+    		else
+    		{
+    		    Node newNode = new Node(data);
+    		    current.next=newNode;
+    		    newNode.prev=current;
+    		}
+	    }
+    }
+}
+```
+## Q3 - https://www.geeksforgeeks.org/problems/reverse-a-doubly-linked-list/1
+```java
+public static Node reverseDLL(Node  head)
+{
+    int count=1;
+    Node temp_tail = head;
+    while(temp_tail.next!=null)
+    {
+        count++;
+        temp_tail=temp_tail.next;
+    }
+    Node temp_head=head;
+    for(int i=0; i<(count/2); i++)
+    {
+        int temp = temp_tail.data;
+        temp_tail.data=temp_head.data;
+        temp_head.data=temp;
+        temp_head=temp_head.next;
+        temp_tail=temp_tail.prev;
+    }
+    return head;
+}
+```
+## Q4 - https://www.geeksforgeeks.org/problems/delete-node-in-doubly-linked-list/1
+```java
+class Solution
+{
+    // function returns the head of the linkedlist
+    Node deleteNode(Node head,int x)
+    {
+        Node current = head;
+        int pos=1;
+    	while(current.next!=null && pos<x)
+    	{
+    	    pos++;
+    	    current=current.next;
+    	}
+    	if(current.next == null)
+    	{
+    	    return head;
+    	}
+
+else{    	current.next=current.next.next;
+    	current.next.prev=current;
+    }
+    return head;
+}
+}
+```
