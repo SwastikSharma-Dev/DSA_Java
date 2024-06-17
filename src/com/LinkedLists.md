@@ -1,4 +1,4 @@
-# Linked Lists
+# SINGLY LINKED LISTS
 ## Q1 - https://www.geeksforgeeks.org/problems/introduction-to-linked-list/1
 ```java
 class Solution {
@@ -130,4 +130,24 @@ class Solution
         return size;
     }
 };
+```
+## Q5 - https://www.geeksforgeeks.org/problems/search-in-linked-list-1664434326/1
+```java
+class Solution
+{
+    static boolean searchKey(int n, Node head, int key)
+    {
+        Node current = head;
+        
+        while(current!=null && current.data!=key)
+        {
+            current=current.next;
+        }
+        if(current==null)
+        {
+            return false;
+        }
+        return true;
+    }
+}
 ```
