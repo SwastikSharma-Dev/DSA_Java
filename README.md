@@ -1,4 +1,4 @@
-# JavaScript InDepth - By Swastik Sharma
+# JAVA InDepth - By Swastik Sharma
 
 ## Swastik Sharma
 
